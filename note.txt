@@ -1,0 +1,1 @@
+using python -m pytest will work for you.
