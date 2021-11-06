@@ -10,6 +10,7 @@ before_install:
 script:
   - docker run --rm -it -v $PWD:/src -w /src -e TOXENV fedorapython/fedora-python-tox
 
+
 matrix:
   include:
   - env: TOXENV=py27
@@ -21,3 +22,10 @@ matrix:
   - env: TOXENV=py310
   - env: TOXENV=pypy
   - env: TOXENV=pypy3
+
+deploy:
+  provider: pages
+  skip_cleanup: true
+  github-toket: $GITHUB_TOKEN
+  on:
+    branch: gh-pages
